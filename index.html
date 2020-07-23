@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <iframe id="UstreamIframe" src="https://www.ustream.tv/embed/23936102" style="border: 0;" webkitallowfullscreen allowfullscreen frameborder="no" width="480" height="270"></iframe>
+  <script src="https://developers.video.ibm.com/js/ustream-embedapi.min.js"></script>
+  <script>
+    const viewer = UstreamEmbed('UstreamIframe');
+    const callback = (eventName, ...args) => {
+      console.log(eventName, ...args);
+    };
+    viewer.addListener('live', callback);
+    viewer.addListener('offline', callback);
+    viewer.addListener('playing', callback);
+  </script>
+</body>
+</html>
